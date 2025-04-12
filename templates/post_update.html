@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar: {{ update.titulo }}{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1>Editar Artículo</h1>
+        <a href="{% url 'post_list' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Actualizar Artículo</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

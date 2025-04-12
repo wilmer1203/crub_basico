@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Artículos{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1>Artículos</h1>
+        <a href="{% url 'post_create' %}" class="btn btn-primary">Crear Nuevo Artículo</a>
+    </div>
+
+    <!-- Lista de artículos -->
+    {% if lista %}
+    <div class="articulo-grid">
+        {% for articulo in lista %}
+        <div class="articulo-card">
+            <div class="articulo-imagen">
+                {% if articulo.imagen %}
+                <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+                {% else %}
+                <span class="sin-imagen">Sin imagen</span>
+                {% endif %}
+            </div>
+            <div class="articulo-contenido">
+                <h2>{{ articulo.titulo }}</h2>
+                <p class="articulo-meta">
+                    Por {{ articulo.author.username }} | {{ articulo.fecha_creacion|date:"d M Y" }}
+                </p>
+                <p class="articulo-descripcion">{{ articulo.descripcion|truncatewords:20 }}</p>
+                <a href="{% url 'post_read' articulo.pk %}" class="articulo-link">Ver más detalles</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="sin-articulos">
+        <h3>No hay artículos disponibles</h3>
+        <p>Crea el primer artículo haciendo clic en el botón superior</p>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ articulo.titulo }}{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <a href="{% url 'post_list' %}" class="btn btn-secondary">
+            &larr; Volver a Artículos
+        </a>
+    </div>
+
+    <div class="articulo-detalle">
+        <!-- Imagen -->
+        {% if articulo.imagen %}
+        <div class="articulo-detalle-imagen">
+            <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+        </div>
+        {% else %}
+        <div class="articulo-detalle-imagen">
+            <div style="background-color: var(--cuevana-gray); height: 250px; display: flex; align-items: center; justify-content: center;">
+                <span class="sin-imagen">Sin imagen</span>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Contenido -->
+        <h1 class="articulo-detalle-titulo">{{ articulo.titulo }}</h1>
+        
+        <div class="articulo-detalle-meta">
+            <p>
+                Por {{ articulo.author.username }} | {{ articulo.fecha_creacion|date:"d M Y H:i" }}
+            </p>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="articulo-detalle-contenido">
+            {{ articulo.descripcion|linebreaks }}
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="articulo-acciones">
+            <a href="{% url 'post_update' articulo.pk %}" class="btn btn-primary">Editar</a>
+           
+            <a href="{% url 'post_delete' articulo.pk %}" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+{% endblock %}

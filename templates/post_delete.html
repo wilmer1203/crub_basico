@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar: {{ object.titulo }}{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1>Eliminar Artículo</h1>
+        <a href="{% url 'post_list' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+
+    <div class="form-container">
+        <h2>¿Estás seguro de que deseas eliminar "{{ object.titulo }}"?</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <a href="{% url 'post_read' object.pk %}" class="btn btn-secondary">No, volver</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
