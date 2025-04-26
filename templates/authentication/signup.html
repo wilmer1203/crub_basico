@@ -1,0 +1,62 @@
+<invoke name="insert_edit_into_file">
+    
+    <parameter name="code">{% extends 'base.html' %}
+    
+    {% block show_navbar %}{% endblock %}
+    
+    {% block content %}
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2>Crear Cuenta</h2>
+            </div>
+            
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Por favor corrija los errores a continuación.
+                </div>
+            {% endif %}
+    
+            <form method="POST" novalidate class="auth-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="username">Nombre de usuario</label>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="error-message">
+                            {{ form.username.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    <label for="password1">Contraseña</label>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <div class="error-message">
+                            {{ form.password1.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+    
+                <div class="form-group">
+                    <label for="password2">Confirmar Contraseña</label>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <div class="error-message">
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+    
+                <button type="submit" class="auth-button">Registrarse</button>
+            </form>
+    
+            <div class="auth-links">
+                <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar Sesión</a></p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}</parameter>
+    </invoke>
