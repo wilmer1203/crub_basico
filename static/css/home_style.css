@@ -1,0 +1,244 @@
+/* Estilos para la página de inicio */
+.home-hero {
+    min-height: 100vh;
+    background-color: var(--cuevana-darker);
+    background-image: linear-gradient(135deg, rgba(20, 22, 24, 0.95), rgba(27, 30, 33, 0.9)), 
+                      url('/static/img/bg-pattern.png');
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(100, 206, 147, 0.1) 0%, rgba(27, 30, 33, 0) 70%);
+    pointer-events: none;
+}
+
+.home-content {
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.home-logo-container {
+    margin-bottom: 3rem;
+}
+
+.home-logo {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--cuevana-green);
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease forwards;
+}
+
+.home-tagline {
+    font-size: 1.2rem;
+    color: var(--cuevana-text);
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.home-button.login {
+    background-color: var(--cuevana-dark);
+    color: var(--cuevana-green);
+    border: 2px solid var(--cuevana-green);
+}
+
+.home-button.login:hover {
+    background-color: var(--cuevana-green);
+    color: var(--cuevana-darker);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(100, 206, 147, 0.3);
+}
+
+.home-button.signup {
+    background-color: var(--cuevana-green);
+    color: var(--cuevana-darker);
+    border: 2px solid var(--cuevana-green);
+}
+
+.home-button.signup:hover {
+    background-color: var(--cuevana-light-green);
+    border-color: var(--cuevana-light-green);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(100, 206, 147, 0.3);
+}
+
+.home-button.explore {
+    background-color: var(--cuevana-gray);
+    color: var(--cuevana-text);
+    border: 2px solid var(--cuevana-gray);
+}
+
+.home-button.explore:hover {
+    background-color: var(--cuevana-light-gray);
+    border-color: var(--cuevana-light-gray);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(52, 58, 64, 0.3);
+}
+
+.home-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 1.5s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.feature-card {
+    background-color: var(--cuevana-dark);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    border: 1px solid var(--cuevana-gray);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--cuevana-green);
+}
+
+.feature-card svg {
+    color: var(--cuevana-green);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--cuevana-light-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: var(--cuevana-text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.home-user-action {
+    background-color: var(--cuevana-dark);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.5s ease 0.9s forwards;
+    opacity: 0;
+    border: 1px solid var(--cuevana-gray);
+}
+
+.home-user-action p {
+    margin-bottom: 1rem;
+    color: var(--cuevana-text);
+}
+
+.home-footer {
+    margin-top: 2rem;
+    color: var(--cuevana-text);
+    opacity: 0.7;
+    animation: fadeIn 1.5s ease 1.2s forwards;
+    opacity: 0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .home-logo {
+        font-size: 3rem;
+    }
+    
+    .home-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .home-features {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Efecto de partículas flotantes */
+.home-hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(100, 206, 147, 0.05) 0%, rgba(100, 206, 147, 0) 20%),
+        radial-gradient(circle at 70% 65%, rgba(100, 206, 147, 0.05) 0%, rgba(100, 206, 147, 0) 20%),
+        radial-gradient(circle at 40% 80%, rgba(100, 206, 147, 0.05) 0%, rgba(100, 206, 147, 0) 20%),
+        radial-gradient(circle at 80% 15%, rgba(100, 206, 147, 0.05) 0%, rgba(100, 206, 147, 0) 20%);
+    pointer-events: none;
+}

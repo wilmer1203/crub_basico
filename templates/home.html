@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Bienvenido a Publicaciones{% endblock %}
+
+{% block show_navbar %}{% endblock %}
+
+{% block content %}
+<div class="home-hero">
+    <div class="home-overlay"></div>
+    <div class="home-content">
+        <div class="home-logo-container">
+            <h1 class="home-logo">Publicaciones</h1>
+            <p class="home-tagline">Tu plataforma para compartir ideas y conocimiento</p>
+        </div>
+        
+        <div class="home-buttons">
+            <a href="{% url 'login' %}" class="home-button login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+                Iniciar Sesión
+            </a>
+            <a href="{% url 'signup' %}" class="home-button signup">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+                Crear Cuenta
+            </a>
+        </div>
+        
+        <div class="home-features">
+            <div class="feature-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <h3>Crea Artículos</h3>
+                <p>Comparte tus ideas y conocimientos con el mundo mediante artículos atractivos.</p>
+            </div>
+            <div class="feature-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <h3>Imágenes Destacadas</h3>
+                <p>Añade imágenes a tus publicaciones para hacerlas más atractivas.</p>
+            </div>
+            <div class="feature-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                </svg>
+                <h3>Explorar Contenido</h3>
+                <p>Descubre artículos interesantes de otros usuarios de la plataforma.</p>
+            </div>
+        </div>
+        
+        {% if user.is_authenticated %}
+        <div class="home-user-action">
+            <p>Ya has iniciado sesión como <strong>{{ user.username }}</strong></p>
+            <a href="{% url 'post_list' %}" class="home-button explore">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                Explorar Artículos
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="home-footer">
+            <p>© {% now "Y" %} Publicaciones. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

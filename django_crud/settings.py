@@ -124,3 +124,6 @@ STATICFILES_DIRS = [BASE_DIR/'static/']
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'post_list'  # Redirige a la lista de publicaciones después de iniciar sesión
+LOGOUT_REDIRECT_URL = 'home'  # Redirige a la página de inicio después de cerrar sesión
