@@ -19,9 +19,7 @@ class PostCreateView(CreateView):
     fields = ['titulo', 'descripcion', 'imagen', 'author']  # Campos del formulario
     success_url = reverse_lazy("post_list")  # URL de redirección después de crear el artículo
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user  # Asignar el usuario actual
-        return super().form_valid(form)
+  
     
 class PostReadView (DetailView):
     template_name = 'post_read.html'
